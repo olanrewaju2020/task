@@ -1,5 +1,5 @@
 <div class="section">
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">COGNIZANT CHALLENGE</span>
             <div class="d-flex">
@@ -16,22 +16,26 @@
         <div class="col-sm-6">
             <div class="container">
                 <div class="body">
-                    <form>
+                    <form [formGroup]="form" (ngSubmit)="check()">
                         <div class="mb-3 row">
-                            <label for="name" class="col-sm-3 col-form-label">NAME</label>
+                            <label class="col-sm-3 col-form-label">NAME</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="name">
+                                <input type="text" class="form-control" formControlName="name">
+                                <span style="color: red; font-size: 14px;"
+                                    *ngIf="name && name.invalid && name.touched">This input filed is not valid</span>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="task" class="col-sm-3 col-form-label">SELECT TASK</label>
+                            <label class="col-sm-3 col-form-label">SELECT TASK</label>
                             <div class="col-sm-9">
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" aria-label="Default select example" formControlName="task">
                                     <option selected>select task</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
+                                <span style="color: red; font-size: 14px;"
+                                    *ngIf="task && task.invalid && task.touched">This input filed is not valid</span>
                             </div>
                         </div>
                         <div class="mb-3 row">
@@ -45,23 +49,26 @@
                             <label for="name" class="col-sm-3 col-form-label">SOLUTION CODE</label>
                             <div class="col-sm-9">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                                        style="height: 100px"></textarea>
+                                    <textarea class="form-control" placeholder="Leave a comment here"
+                                        style="height: 100px" formControlName="source"></textarea>
+                                    <span style="color: red; font-size: 14px;"
+                                        *ngIf="source && source.invalid && source.touched">This input filed is not
+                                        valid</span>
                                 </div>
                             </div>
                         </div>
                         <div class="mb-3 row">
                             <label for="name" class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-    
-                                <button type="button" class="btn btn-secondary">SUBMIT</button>
+                                <button type="button" [disabled]="form.invalid"
+                                    class="btn btn-secondary">SUBMIT</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    
+
         <div class="col-sm-6 body_1">
             <app-score-page></app-score-page>
         </div>
