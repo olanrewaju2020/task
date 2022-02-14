@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-form-page',
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class FormPageComponent implements OnInit {
   form: FormGroup = new FormGroup({})
 
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -33,5 +34,9 @@ export class FormPageComponent implements OnInit {
 
   get source() {
     return this.form.get('source');
+  }
+
+  showToastr() {
+    this.toastr.success('Message submitted sucessfully', 'Success');
   }
 }
