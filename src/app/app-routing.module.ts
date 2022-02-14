@@ -6,7 +6,7 @@ import { ScorePageComponent } from './score-page/score-page.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: "home", component: FormPageComponent},
-  {path: "score", component: ScorePageComponent}
+  {path: "top-3", component: ScorePageComponent}
 ];
 
 @NgModule({

@@ -10,7 +10,7 @@ import { ScorePageComponent } from './score-page/score-page.component';
   declarations: [
     AppComponent,
     FormPageComponent,
-    ScorePageComponent
+    ScorePageComponent,
   ],
   imports: [
     BrowserModule,
