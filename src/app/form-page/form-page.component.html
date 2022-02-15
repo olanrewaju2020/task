@@ -26,6 +26,20 @@
                             </div>
                         </div>
                         <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">LANGUAGE</label>
+                            <div class="col-sm-9">
+                                <select class="form-select" aria-label="Default select example"
+                                    formControlName="language">
+                                    <option selected>select task</option>
+                                    <option value="1">Java 8</option>
+                                    <option value="2">Java 11</option>
+                                </select>
+                                <span style="color: red; font-size: 14px;"
+                                    *ngIf="language && language.invalid && language.touched">This input filed is not
+                                    valid</span>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
                             <label for="description" class="col-sm-3 col-form-label">DESCRIPTION</label>
                             <div class="col-sm-9">
                                 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
@@ -47,8 +61,8 @@
                         <div class="mb-3 row">
                             <label for="name" class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <button type="button" [disabled]="form.invalid"
-                                    class="btn btn-secondary" (click)="showToastr()">SUBMIT</button>
+                                <button type="button" [disabled]="form.invalid" class="btn btn-secondary"
+                                    (click)="showToastr()">SUBMIT</button>
                             </div>
                         </div>
                     </form>

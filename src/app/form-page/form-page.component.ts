@@ -16,6 +16,7 @@ export class FormPageComponent implements OnInit {
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required]),
       task: new FormControl('', [Validators.required]),
+      language: new FormControl('', [Validators.required]),
       source: new FormControl('', [Validators.required])
     })
   }
@@ -34,6 +35,10 @@ export class FormPageComponent implements OnInit {
 
   get source() {
     return this.form.get('source');
+  }
+
+  get language() {
+    return this.form.get('language');
   }
 
   showToastr() {
